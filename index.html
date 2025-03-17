@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>羽賀尚生 | Naoki Haga</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #3498db;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --light-text: #f8f9fa;
+      --font-main: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+      --font-heading: 'Noto Serif JP', 'Georgia', serif;
+      --transition: all 0.3s ease;
+    }
+    
+    .mt-4 {
+      margin-top: 2rem;
+    }
+    
+    .principles-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    
+    .principles-list li {
+      background-color: var(--light-color);
+      margin-bottom: 0.8rem;
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .principles-list li strong {
+      color: var(--accent-color);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-main);
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-color);
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--secondary-color);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header and Navigation */
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .logo a {
+      color: var(--light-text);
+    }
+    
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light-text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      flex-wrap: nowrap;
+    }
+    
+    nav ul li {
+      margin-left: 1.5rem;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 992px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 0 0.75rem;
+      }
+    }
+    
+    nav ul li a {
+      color: var(--light-text);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    nav ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: var(--transition);
+    }
+    
+    nav ul li a:hover:after,
+    nav ul li a.active:after {
+      width: 100%;
+    }
+    
+    .language-switch {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+    
+    .language-switch a {
+      color: var(--light-text);
+      font-weight: 500;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    
+    .language-switch a.active {
+      background-color: var(--accent-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      margin-top: 76px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+      color: var(--light-text);
+      padding: 8rem 0;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: 5rem 0;
+    }
+    
+    section:nth-child(even) {
+      background-color: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-img {
+      flex: 1;
+    }
+    
+    .about-img img {
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 100%;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .about-text p {
+      margin-bottom: 1rem;
+    }
+    
+    .about-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .highlight-item {
+      background-color: var(--light-color);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    /* Academic Profile Section */
+    .academic-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .academic-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+    
+    .academic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+    }
+    
+    .card-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .card-body ul {
+      list-style: none;
+    }
+    
+    .card-body ul li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .card-body ul li:before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Activities Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: var(--accent-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 2rem 3rem;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      right: -11px;
+      width: 22px;
+      height: 22px;
+      background-color: white;
+      border: 4px solid var(--accent-color);
+      border-radius: 50%;
+      z-index: 1;
+      top: 2.5rem;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -11px;
+    }
+    
+    .timeline-content {
+      position: relative;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-date {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+    }
+    
+    /* Research Section */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .research-item {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+    
+    .research-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .research-img {
+      width: 100%;
+      height: 200px;
+      background-color: var(--secondary-color);
+    }
+    
+    .research-content {
+      padding: 1.5rem;
+    }
+    
+    .research-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+    }
+    
+    .research-content p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .tag {
+      background-color: var(--light-color);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    /* Vision Section */
+    .vision-content {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .vision-text {
+      flex: 1;
+    }
+    
+    .vision-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .vision-quote {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+    
+    .vision-img {
+      flex: 1;
+    }
+    
+    .vision-img img {
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 100%;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+      display: flex;
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-right: 1rem;
+      width: 40px;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    .contact-form {
+      flex: 1;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: var(--font-main);
+      font-size: 1rem;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 3rem 0;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    
+    .footer-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-links h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links ul li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links ul li a {
+      color: var(--light-text);
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-links ul li a:hover {
+      opacity: 1;
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      margin-top: 3rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Language-specific display */
+    .lang-ja, .lang-en {
+      display: none;
+    }
+    
+    html[lang="ja"] .lang-ja {
+      display: block;
+    }
+    
+    html[lang="en"] .lang-en {
+      display: block;
+    }
+    
+    html[lang="ja"] .lang-ja-inline {
+      display: inline-block;
+    }
+    
+    html[lang="en"] .lang-en-inline {
+      display: inline-block;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .vision-content,
+      .contact-content {
+        flex-direction: column;
+      }
+      
+      .vision-content {
+        flex-direction: column-reverse;
+      }
+      
+      .about-img,
+      .vision-img {
+        margin-bottom: 2rem;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-right: 2rem;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline::after {
+        left: 0;
+      }
+      
+      .timeline-dot {
+        left: -11px;
+        right: auto;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: -11px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 76px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 76px);
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+        transition: var(--transition);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      nav ul li {
+        margin: 1rem 0;
+      }
+      
+      .language-switch {
+        margin-top: 1rem;
+        margin-left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <a href="#">羽賀尚生 | Naoki Haga</a>
+      </div>
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul class="lang-ja">
+          <li><a href="#home" class="active">ホーム</a></li>
+          <li><a href="#about">自己紹介</a></li>
+          <li><a href="#academic">学術プロフィール</a></li>
+          <li><a href="#activities">活動実績</a></li>
+          <li><a href="#research">研究・執筆</a></li>
+          <li><a href="#vision">ビジョン</a></li>
+          <li><a href="#contact">連絡先</a></li>
+        </ul>
+        <ul class="lang-en">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#academic">Academic Profile</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="language-switch">
+        <a href="#" onclick="setLanguage('ja')" class="lang-switch-ja">日本語</a>
+        <span>|</span>
+        <a href="#" onclick="setLanguage('en')" class="lang-switch-en">English</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content lang-ja">
+        <h1>羽賀尚生 | Naoki Haga</h1>
+        <p>歴史学 × 教育 × 地方創生<br>学術と社会をつなぐ「橋渡し役」</p>
+        <p class="hero-subtitle">教員志望の歴史学徒 | 「帯広に学校をつくる」夢を追う</p>
+        <a href="#contact" class="btn">お問い合わせ</a>
+      </div>
+      <div class="hero-content lang-en">
+        <h1>Naoki Haga</h1>
+        <p>History × Education × Regional Revitalization<br>Bridging Academia and Society</p>
+        <p class="hero-subtitle">History Student Aspiring to Become an Educator | Pursuing the Dream of "Establishing a School in Obihiro"</p>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">自己紹介</h2>
+        <h2 class="lang-en">About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-img">
+          <img src="/api/placeholder/500/600" alt="Naoki Haga">
+        </div>
+        <div class="about-text">
+          <div class="lang-ja">
+            <h3>歴史と教育をつなぐ架け橋として</h3>
+            <p>国際基督教大学（ICU）歴史学専攻、現在イギリス・マンチェスター大学に留学中の羽賀尚生です。ロシア史、特に戦争の文化史と記憶研究を専門に学んでいます。2026年秋からはイギリスの大学院進学を目指しています。</p>
+            
+            <p>北海道十勝・帯広市出身。学年わずか20人程度の小規模校で9年間過ごした、かなりの田舎育ちです。地元の自然や人々との深いつながりを通じて、十勝への強い愛着と教育・地方創生への関心を育みました。大学進学で上京した後も、帰省するたびに「若者が希望を持てる地域社会」の重要性を実感しています。</p>
+            
+            <p>NPO活動やボランティアを通じて組織運営や危機対応の経験も積み、将来は教員になり、最終的には「帯広に学校をつくる」という夢の実現に向けて歩んでいます。企業経験を積んだ後に教育現場に入ることで、生徒たちに多様なキャリアパスを示すロールモデルになりたいと考えています。</p>
+            <div class="about-highlights">
+              <div class="highlight-item">歴史学（ロシア史）</div>
+              <div class="highlight-item">教育学</div>
+              <div class="highlight-item">地方創生</div>
+              <div class="highlight-item">NPO活動</div>
+              <div class="highlight-item">マンチェスター大学留学中</div>
+            </div>
+          </div>
+          <div class="lang-en">
+            <h3>Bridging History and Education</h3>
+            <p>I'm Naoki Haga, a history major at International Christian University (ICU), currently studying at the University of Manchester in the UK. My academic focus is on Russian history, particularly the cultural history of war and memory studies. I plan to pursue graduate studies in the UK starting in autumn 2026.</p>
+            
+            <p>Born and raised in Obihiro, Tokachi region of Hokkaido, I spent 9 years in a small school with only about 20 students per grade. Through deep connections with the local nature and community, I developed a strong attachment to Tokachi and an interest in education and regional revitalization. Even after moving to Tokyo for university, I keenly feel the importance of "creating communities where young people can find hope" whenever I return home.</p>
+            
+            <p>Through my involvement in NPO activities and volunteer work, I've gained experience in organizational management and crisis response. My future goal is to become an educator and ultimately realize my dream of "establishing a school in Obihiro." By gaining corporate experience before entering the education field, I hope to become a role model who can show students diverse career paths.</p>
+            <div class="about-highlights">
+              <div class="highlight-item">History (Russian History)</div>
+              <div class="highlight-item">Education</div>
+              <div class="highlight-item">Regional Revitalization</div>
+              <div class="highlight-item">NPO Activities</div>
+              <div class="highlight-item">Exchange Student at University of Manchester</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Profile Section -->
+  <section id="academic">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">学術プロフィール</h2>
+        <h2 class="lang-en">Academic Profile</h2>
+      </div>
+      <div class="academic-content">
+        <div class="academic-card">
+          <div class="card-header">
+            <h3 class="lang-ja">研究関心領域</h3>
+            <h3 class="lang-en">Research Interests</h3>
+            <p class="lang-ja">Research Interests</p>
+            <p class="lang-en">研究関心領域</p>
+          </div>
+          <div class="card-body">
+            <ul class="lang-ja">
+              <li>戦争記憶とその表象</li>
+              <li>子どもと戦争の複合的関係</li>
+              <li>第一次世界大戦の記憶</li>
+              <li>越境する記憶とディアスポラ</li>
+              <li>民衆史・辺境からの視点</li>
+            </ul>
+            <ul class="lang-en">
+              <li>War Memory and Its Representation</li>
+              <li>Complex Relationship Between Children and War</li>
+              <li>Memory of the First World War</li>
+              <li>Transnational Memory and Diaspora</li>
+              <li>People's History and Perspectives from the Periphery</li>
+            </ul>
+          </div>
+        </div>
+        <div class="academic-card">
+          <div class="card-header">
+            <h3 class="lang-ja">教育背景</h3>
+            <h3 class="lang-en">Educational Background</h3>
+            <p class="lang-ja">Educational Background</p>
+            <p class="lang-en">教育背景</p>
+          </div>
+          <div class="card-body">
+            <ul class="lang-ja">
+              <li>マンチェスター大学（2024年-2025年）<br>交換留学</li>
+              <li>国際基督教大学（2021年-2026年予定）<br>教養学部アーツ・サイエンス学科<br>専攻：歴史学、副専攻：教育学</li>
+              <li>プーシキン国立ロシア語大学（2023年）<br>短期留学</li>
+              <li>北海道帯広柏葉高校（2018年-2021年）</li>
+            </ul>
+            <ul class="lang-en">
+              <li>University of Manchester (2024-2025)<br>Exchange Program</li>
+              <li>International Christian University (2021-2026 expected)<br>College of Liberal Arts<br>Major: History, Minor: Education</li>
+              <li>Pushkin State Russian Language Institute (2023)<br>Short-term Study</li>
+              <li>Hokkaido Obihiro Hakuyou High School (2018-2021)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="academic-card">
+          <div class="card-header">
+            <h3 class="lang-ja">研究アプローチ</h3>
+            <h3 class="lang-en">Research Approaches</h3>
+            <p class="lang-ja">Research Approaches</p>
+            <p class="lang-en">研究アプローチ</p>
+          </div>
+          <div class="card-body">
+            <ul class="lang-ja">
+              <li>集合的記憶と記念実践の政治学</li>
+              <li>視覚文化と表象分析（博物館展示、子どもの絵画）</li>
+              <li>文化的アイデンティティ形成における記憶の役割</li>
+              <li>思想史研究（一次資料の批判的解釈）</li>
+              <li>周縁的視点からの歴史再考（オルタナティブ・ナラティブ）</li>
+              <li>比較歴史学的アプローチ（東西ヨーロッパの対比）</li>
+            </ul>
+            <ul class="lang-en">
+              <li>Politics of Collective Memory and Commemorative Practices</li>
+              <li>Visual Culture and Representation Analysis (Museum Exhibitions, Children's Paintings)</li>
+              <li>Role of Memory in Cultural Identity Formation</li>
+              <li>Intellectual History Research (Critical Interpretation of Primary Sources)</li>
+              <li>Historical Reconsideration from Peripheral Perspectives (Alternative Narratives)</li>
+              <li>Comparative Historical Approach (Contrasting Eastern and Western Europe)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="academic-card">
+          <div class="card-header">
+            <h3 class="lang-ja">教育理念</h3>
+            <h3 class="lang-en">Educational Philosophy</h3>
+            <p class="lang-ja">Educational Philosophy</p>
+            <p class="lang-en">教育理念</p>
+          </div>
+          <div class="card-body">
+            <ul class="lang-ja">
+              <li>価値観を相対化できる歴史教育の実践</li>
+              <li>多様なキャリアパスを示すロールモデルの提示</li>
+              <li>「学び方を学ぶ」基礎スキルの習得支援</li>
+              <li>共同体験を通じた人格形成の重視</li>
+              <li>生徒を教育の対象ではなく当事者として捉える視点</li>
+              <li>学校と地域社会の連携強化</li>
+            </ul>
+            <ul class="lang-en">
+              <li>Practice of History Education That Relativizes Value Systems</li>
+              <li>Presenting Role Models That Demonstrate Diverse Career Paths</li>
+              <li>Supporting the Acquisition of "Learning How to Learn" Basic Skills</li>
+              <li>Emphasis on Character Formation Through Shared Experiences</li>
+              <li>Viewing Students as Participants Rather Than Subjects of Education</li>
+              <li>Strengthening Collaboration Between Schools and Local Communities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">活動実績</h2>
+        <h2 class="lang-en">Activities & Experience</h2>
+      </div>
+      
+      <div class="academic-achievements mb-5">
+        <h3 class="lang-ja">学術成果</h3>
+        <h3 class="lang-en">Academic Achievements</h3>
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="achievement-content">
+              <h4 class="lang-ja">Dean's List 複数回受賞</h4>
+              <h4 class="lang-en">Dean's List Multiple Times</h4>
+              <p class="lang-ja">Spring 2022, Autumn 2022, Winter 2022, Autumn 2023など、国際基督教大学での優秀な学業成績が評価され、複数回のDean's List入りを果たしています。</p>
+              <p class="lang-en">Recognized for excellent academic performance at International Christian University with multiple Dean's List honors including Spring 2022, Autumn 2022, Winter 2022, and Autumn 2023.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="achievement-content">
+              <h4 class="lang-ja">公益財団法人みずほ国際交流奨学財団 2024年度奨学生</h4>
+              <h4 class="lang-en">Mizuho International Exchange Foundation Scholarship 2024</h4>
+              <p class="lang-ja">学術的成果と将来性を評価され、みずほ国際交流奨学財団より奨学金を授与されました。</p>
+              <p class="lang-en">Awarded a scholarship from the Mizuho International Exchange Foundation in recognition of academic achievements and future potential.</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="achievement-content">
+              <h4 class="lang-ja">IELTS 7.5</h4>
+              <h4 class="lang-en">IELTS 7.5</h4>
+              <p class="lang-ja">高度な英語運用能力を証明するIELTSで7.5のスコアを取得。アカデミックな場面での英語コミュニケーション能力が評価されました。</p>
+              <p class="lang-en">Achieved a score of 7.5 on the IELTS, demonstrating advanced English proficiency and strong communication skills in academic contexts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline">
+        <!-- Timeline content in Japanese and English -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2021 - Present</div>
+            <h3 class="timeline-title">NPO ROJE</h3>
+            <div class="lang-ja">
+              <p>プロジェクトリーダー / 人事責任者として150名規模の組織で改革を実現。組織は安定期にあるはずでしたが、方向性の不一致や無駄な業務による体力消耗、メンバーの途中離脱など、様々な課題が積み重なっていました。</p>
+              <div class="timeline-details">
+                <h4>問題発見と解決アプローチ</h4>
+                <ul>
+                  <li>全メンバーと1on1ミーティングを実施し、入会動機や不安、展望を把握</li>
+                  <li>「このイベントで何がしたいの？」という問いを通じて共通の目標を見出す</li>
+                  <li>心理的安全性の向上（アイスブレイクの導入、期待値の明確化）</li>
+                  <li>事業の選択と集中、ナレッジ管理の一元化によるタスクの最適化（週20時間→8時間）</li>
+                  <li>メンバーの当事者意識の向上と積極的な参加を促進</li>
+                </ul>
+                <h4>成果</h4>
+                <ul>
+                  <li>全メンバーのプロジェクト完遂（前例なし）</li>
+                  <li>50名以上の新規入会者獲得</li>
+                  <li>後継者数の増加（1人→6人）と組織の安定化</li>
+                </ul>
+              </div>
+            </div>
+            <div class="lang-en">
+              <p>Implemented organizational reform as Project Leader / HR Manager in a 150-member organization. Despite being in what should have been a stable period, the organization faced challenges including directional misalignment, inefficient workflows, and member attrition.</p>
+              <div class="timeline-details">
+                <h4>Problem Identification and Solution Approach</h4>
+                <ul>
+                  <li>Conducted 1-on-1 meetings with all members to understand their motivations, concerns, and perspectives</li>
+                  <li>Identified common goals through questions like "What do you want to achieve with this event?"</li>
+                  <li>Enhanced psychological safety (introduced icebreakers, clarified expectations)</li>
+                  <li>Optimized tasks through strategic prioritization and centralized knowledge management (reduced workload from 20 to 8 hours per week)</li>
+                  <li>Promoted ownership mentality and active participation among members</li>
+                </ul>
+                <h4>Results</h4>
+                <ul>
+                  <li>Achieved project completion by all members (unprecedented)</li>
+                  <li>Recruited over 50 new members</li>
+                  <li>Increased successors (from 1 to 6) and stabilized the organization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- More timeline items with Japanese/English content -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024</div>
+            <h3 class="timeline-title">Noto Peninsula Earthquake Support</h3>
+            <div class="lang-ja">
+              <p>2024年能登半島地震の発生直後、子どもの居場所支援活動の立ち上げを主導。複数の助成金と2週間で120万円超の寄付を獲得しました。</p>
+              <div class="timeline-details">
+                <h4>課題発見と対応</h4>
+                <ul>
+                  <li>現地調査で子育て世代向け支援情報の分散問題を発見</li>
+                  <li>子育て世代向け統合情報サイトの開設をリーダーとして推進</li>
+                  <li>3段階プロセスの設計：①現地ニーズの収集 ②支援リソースの一元管理 ③チームづくり</li>
+                  <li>10名のチームをまとめ、2週間という短期間でサイト立ち上げに成功</li>
+                </ul>
+                <h4>得られた力</h4>
+                <ul>
+                  <li>危機対応における迅速な状況判断力</li>
+                  <li>多様なステークホルダーとの調整力</li>
+                  <li>社会課題に対する実践的な解決力</li>
+                </ul>
+              </div>
+            </div>
+            <div class="lang-en">
+              <p>Led the establishment of support activities for children's safe spaces immediately after the 2024 Noto Peninsula Earthquake. Secured multiple grants and over 1.2 million yen in donations within two weeks.</p>
+              <div class="timeline-details">
+                <h4>Issue Identification and Response</h4>
+                <ul>
+                  <li>Discovered fragmented support information for families with children during field research</li>
+                  <li>Led the development of an integrated information platform for parents and caregivers</li>
+                  <li>Designed a 3-phase process: ①Collecting local needs ②Centralizing support resources ③Team building</li>
+                  <li>Coordinated a 10-person team to successfully launch the site within just two weeks</li>
+                </ul>
+                <h4>Skills Developed</h4>
+                <ul>
+                  <li>Rapid situation assessment in crisis response</li>
+                  <li>Coordination among diverse stakeholders</li>
+                  <li>Practical problem-solving for social challenges</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024 - Present</div>
+            <h3 class="timeline-title">NO YOUTH NO JAPAN</h3>
+            <div class="lang-ja">
+              <p>シンクタンクチームのメンバーとして、日本総研と共同で若者の政治参加に関する調査・分析に携わっています。</p>
+              <div class="timeline-details">
+                <h4>現在の活動</h4>
+                <ul>
+                  <li>2024年衆院選を受けた若者の政治意識データ収集</li>
+                  <li>若者の政治参加を促進する政策提言の検討</li>
+                  <li>Critical Thinkingを活かした調査・分析の実施</li>
+                </ul>
+              </div>
+            </div>
+            <div class="lang-en">
+              <p>Working as a think tank team member in collaboration with the Japan Research Institute to conduct research and analysis on youth political participation.</p>
+              <div class="timeline-details">
+                <h4>Current Activities</h4>
+                <ul>
+                  <li>Collecting data on youth political awareness following the 2024 general election</li>
+                  <li>Developing policy recommendations to promote youth political participation</li>
+                  <li>Conducting research and analysis using critical thinking methods</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024 (Jan-May)</div>
+            <h3 class="timeline-title">KADOKAWA Corporation</h3>
+            <div class="lang-ja">
+              <p>教育編集部でのインターンシップで「子ども×学び」をテーマとした市場調査を実施。</p>
+              <div class="timeline-details">
+                <h4>成果</h4>
+                <ul>
+                  <li>教育市場の詳細な分析と潜在ニーズの発掘</li>
+                  <li>オリジナルのコンテンツ企画を提案</li>
+                  <li>提案内容が実際の書籍企画に発展</li>
+                </ul>
+              </div>
+            </div>
+            <div class="lang-en">
+              <p>Conducted market research on "Children × Learning" during an internship at the Education Editorial Department.</p>
+              <div class="timeline-details">
+                <h4>Achievements</h4>
+                <ul>
+                  <li>Detailed analysis of the education market and identification of potential needs</li>
+                  <li>Proposed original content ideas</li>
+                  <li>Proposal developed into an actual book project</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">研究・執筆</h2>
+        <h2 class="lang-en">Research & Publications</h2>
+      </div>
+      <div class="research-grid">
+        <div class="research-item">
+          <div class="research-img" style="background: url('/api/placeholder/400/300') center/cover;"></div>
+          <div class="research-content">
+            <div class="lang-ja">
+              <h3>戦争記憶の視覚表象：ロシアの戦勝記念日における子どもの絵画分析</h3>
+              <p>レニングラード包囲戦博物館における障害児による戦勝記念日の絵画展示を分析。子どもの視点から見た戦争記憶の選択的表象と国家的記憶の形成プロセスを考察。ピエール・ノラの「記憶の場」理論やジェイ・ウィンターの集合的記憶論を援用した事例研究。</p>
+              <div class="tags">
+                <span class="tag">集合的記憶</span>
+                <span class="tag">視覚資料分析</span>
+                <span class="tag">現代ロシア</span>
+              </div>
+            </div>
+            <div class="lang-en">
+              <h3>Visual Representations of War Memory: Analysis of Children's Paintings in Russian Victory Day Celebrations</h3>
+              <p>Analysis of Victory Day paintings by children with disabilities at the Siege of Leningrad Museum. Examines selective representation of war memory from children's perspectives and the process of national memory formation. A case study utilizing Pierre Nora's theory of "lieux de mémoire" and Jay Winter's collective memory theory.</p>
+              <div class="tags">
+                <span class="tag">Collective Memory</span>
+                <span class="tag">Visual Material Analysis</span>
+                <span class="tag">Contemporary Russia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-img" style="background: url('/api/placeholder/400/300') center/cover;"></div>
+          <div class="research-content">
+            <div class="lang-ja">
+              <h3>19世紀ロシアの思想論争：スラヴ主義と西欧主義から見る国民的アイデンティティの形成</h3>
+              <p>19世紀ロシアにおけるスラヴ主義者と西欧主義者の論争を分析。両陣営は一見対立するものの、実は共にロシアのヨーロッパ文明内での独自の位置づけを模索していたことを論証。ロシアにおける国民的アイデンティティ形成プロセスとしての思想史研究。</p>
+              <div class="tags">
+                <span class="tag">ロシア思想史</span>
+                <span class="tag">国民的アイデンティティ</span>
+                <span class="tag">近代化論</span>
+              </div>
+            </div>
+            <div class="lang-en">
+              <h3>19th Century Russian Intellectual Debates: National Identity Formation Through Slavophile and Westernizer Perspectives</h3>
+              <p>Analysis of the debates between Slavophiles and Westernizers in 19th century Russia. Although seemingly opposed, both camps were seeking Russia's unique position within European civilization. An intellectual history study examining the process of national identity formation in Russia.</p>
+              <div class="tags">
+                <span class="tag">Russian Intellectual History</span>
+                <span class="tag">National Identity</span>
+                <span class="tag">Modernization Theory</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="research-item">
+          <div class="research-img" style="background: url('/api/placeholder/400/300') center/cover;"></div>
+          <div class="research-content">
+            <div class="lang-ja">
+              <h3>創られた伝統としての戦勝記念：ロシアとイギリスにおける第二次世界大戦勝利の記念継続性</h3>
+              <p>Hobsbawmの「創られた伝統」とAssmannの集合的記憶理論を枠組みとして、ロシアとイギリスが第二次世界大戦の勝利をどのように記念してきたかを比較分析。ロシアでは国家主導で大祖国戦争と1812年のナポレオン戦争を結びつける歴史的連続性を構築する一方、イギリスでは第一次世界大戦の影響下で国家と社会の複合的相互作用を通じて「人々の戦争」という記憶形成が進んだことを論証。記念碑や空間的象徴の政治学的考察も含む。</p>
+              <div class="tags">
+                <span class="tag">比較記憶研究</span>
+                <span class="tag">集合的記憶</span>
+                <span class="tag">記念空間</span>
+                <span class="tag">英露比較</span>
+              </div>
+            </div>
+            <div class="lang-en">
+              <h3>Commemoration as Invented Tradition: Continuities of Victory Commemoration in World War II in Russia and Britain</h3>
+              <p>A comparative analysis of how Russia and Britain have commemorated their World War II victories, using Hobsbawm's concept of "invented tradition" and Assmann's collective memory theory as frameworks. While Russia constructed historical continuity linking the Great Patriotic War with the 1812 Napoleonic War through state direction, Britain developed a "People's War" mythology through complex interaction between state and society under the shadow of World War I. Includes political analysis of monuments and spatial symbolism.</p>
+              <div class="tags">
+                <span class="tag">Comparative Memory Studies</span>
+                <span class="tag">Collective Memory</span>
+                <span class="tag">Commemorative Spaces</span>
+                <span class="tag">Anglo-Russian Comparison</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section id="vision">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">ビジョンと将来目標</h2>
+        <h2 class="lang-en">Vision & Future Goals</h2>
+      </div>
+      <div class="vision-content">
+        <div class="vision-text">
+          <div class="lang-ja">
+            <h3>帯広に学校をつくる</h3>
+            <p>私には夢があります。それは、生まれ育った北海道・十勝に学校をつくるという夢です。大学進学で上京して以来、帰省するたびに慣れ親しんだ風景から何かが欠けていく状況を目の当たりにしてきました。</p>
+            
+            <p>上京した同級生は口を揃えて「地元に帰って暮らすつもりはない」と話し、地域を離れていきます。このような現状を見て、若者が自分の出身地域に希望を見出せる社会をつくりたいという思いが強くなりました。一極集中に未来はないと信じているからです。</p>
+            
+            <div class="vision-quote">
+              「価値観を相対化できる歴史教育、自分の価値観がガラガラと崩れるような授業、多様な経験を持つ教員によるロールモデル提示。それが私の目指す教育のあり方です。」
+            </div>
+            
+            <h3 class="mt-4">教員への道</h3>
+            <p>私は将来、教員になることを強く希望しています。特に教員としての大きな動機は、多様なキャリアを持つ「ロールモデル」として子どもたちに影響を与えることです。現代の教育環境では、生徒たちが多様なキャリアパスを想像できるようなロールモデルが不足しています。</p>
+            
+            <p>そのため、まずは企業での経験を積み、その後教育現場に入ることを計画しています。「あんないいところに行っていたのに教員なの？」という驚きを通じて、生徒たちの価値観に揺さぶりをかけたいと考えています。教育をより魅力的に見せることで、次世代の教育者も育てていきたいです。</p>
+            
+            <h3 class="mt-4">イギリス大学院進学</h3>
+            <p>現在は、2026年秋からのイギリスの大学院進学を目指しています。マンチェスター大学での留学経験を活かし、歴史学と教育学の架け橋となる研究を深めたいと考えています。特に戦争の記憶や歴史教育の方法論について学び、将来の教育実践に活かすことを計画しています。</p>
+          </div>
+          <div class="lang-en">
+            <h3>Establishing a School in Obihiro</h3>
+            <p>I have a dream: to establish a school in my hometown of Tokachi, Hokkaido. Since moving to Tokyo for university, I've witnessed something missing from the familiar landscape every time I return home.</p>
+            
+            <p>My classmates who moved to Tokyo unanimously say they "don't plan to return and live in their hometown," leaving the region. Seeing this situation has strengthened my desire to create a society where young people can find hope in their home regions. I believe there is no future in excessive centralization.</p>
+            
+            <div class="vision-quote">
+              "History education that can relativize values, classes that fundamentally challenge students' perspectives, role models presented by teachers with diverse experiences. That's the kind of education I aim to provide."
+            </div>
+            
+            <h3 class="mt-4">Path to Becoming an Educator</h3>
+            <p>I strongly aspire to become an educator in the future. A major motivation is to influence children as a "role model" with diverse career experiences. In today's educational environment, there is a lack of role models that allow students to envision diverse career paths.</p>
+            
+            <p>Therefore, I plan to gain corporate experience first, then enter the educational field. I want to challenge students' perspectives through their surprise: "You worked at such a great place, why become a teacher?" By making education appear more attractive, I hope to also nurture the next generation of educators.</p>
+            
+            <h3 class="mt-4">Graduate Studies in the UK</h3>
+            <p>Currently, I'm aiming to pursue graduate studies in the UK from autumn 2026. I want to leverage my exchange experience at the University of Manchester to deepen research that bridges history and education. I plan to study war memory and historical education methodologies in particular, applying these insights to my future educational practice.</p>
+          </div>
+        </div>
+        <div class="vision-img">
+          <img src="/api/placeholder/500/400" alt="Vision">
+          
+          <div class="vision-principles mt-4">
+            <h3 class="lang-ja">私の価値観と行動原理</h3>
+            <h3 class="lang-en">My Values and Guiding Principles</h3>
+            <ul class="principles-list lang-ja">
+              <li><strong>時間軸と歴史的視点:</strong> 長期的な影響や歴史的スパンで物事を考える</li>
+              <li><strong>交換不可能性の追求:</strong> 歯車ではなく、歯車をつくる人になる</li>
+              <li><strong>橋渡し役としての自己認識:</strong> 研究と社会、学校と社会、地方と中央をつなぐ</li>
+              <li><strong>本質への探究心:</strong> 表面的な理解に満足せず、深く考え抜く</li>
+            </ul>
+            <ul class="principles-list lang-en">
+              <li><strong>Temporal Axis and Historical Perspective:</strong> Considering matters in terms of long-term impact and historical span</li>
+              <li><strong>Pursuit of Irreplaceability:</strong> Being not just a cog, but someone who creates cogs</li>
+              <li><strong>Self-recognition as a Bridge-builder:</strong> Connecting research and society, schools and society, regions and central areas</li>
+              <li><strong>Intellectual Curiosity for Essence:</strong> Never satisfied with surface-level understanding, always thinking deeply</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="lang-ja">コンタクト</h2>
+        <h2 class="lang-en">Contact</h2>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3 class="lang-ja">お問い合わせ</h3>
+          <h3 class="lang-en">Get in Touch</h3>
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="lang-ja">メール</h4>
+              <h4 class="lang-en">Email</h4>
+              <p>nhagahky@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h4 class="lang-ja">電話番号</h4>
+              <h4 class="lang-en">Phone</h4>
+              <p>(+44) 07873652563</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4 class="lang-ja">現在地</h4>
+              <h4 class="lang-en">Current Location</h4>
+              <p class="lang-ja">イギリス・マンチェスター（交換留学中）</p>
+              <p class="lang-en">Manchester, UK (Exchange Program)</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/naoki-haga" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-researchgate"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name" class="lang-ja">お名前</label>
+              <label for="name" class="lang-en">Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="lang-ja">メールアドレス</label>
+              <label for="email" class="lang-en">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="subject" class="lang-ja">件名</label>
+              <label for="subject" class="lang-en">Subject</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="message" class="lang-ja">メッセージ</label>
+              <label for="message" class="lang-en">Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn lang-ja">送信する</button>
+            <button type="submit" class="btn lang-en">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>羽賀尚生 | Naoki Haga</h3>
+          <p class="lang-ja">歴史学専攻の学生として、過去と未来、学術と社会、地方と教育をつなぐ「橋渡し役」を目指しています。</p>
+          <p class="lang-en">As a history student, I aim to serve as a "bridge-builder" connecting past and future, academia and society, regions and education.</p>
+        </div>
+        <div class="footer-links">
+          <h3 class="lang-ja">Quick Links</h3>
+          <h3 class="lang-en">Quick Links</h3>
+          <ul class="lang-ja">
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">自己紹介</a></li>
+            <li><a href="#academic">学術プロフィール</a></li>
+            <li><a href="#activities">活動実績</a></li>
+            <li><a href="#research">研究・執筆</a></li>
+            <li><a href="#vision">ビジョン</a></li>
+            <li><a href="#contact">コンタクト</a></li>
+          </ul>
+          <ul class="lang-en">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#academic">Academic Profile</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 羽賀尚生 | Naoki Haga. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set default language
+    let currentLang = 'ja';
+    
+    // Function to switch language
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      
+      // Update active state for language switcher
+      document.querySelectorAll('.language-switch a').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.querySelector(`.lang-switch-${lang}`).classList.add('active');
+      
+      // Update visibility of language-specific elements
+      document.querySelectorAll('.lang-ja, .lang-en, .lang-ja-inline, .lang-en-inline').forEach(el => {
+        el.style.display = 'none';
+      });
+      
+      document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+        el.style.display = 'block';
+      });
+      
+      document.querySelectorAll(`.lang-${lang}-inline`).forEach(el => {
+        el.style.display = 'inline-block';
+      });
+    }
+    
+    // Initial language setup
+    document.addEventListener('DOMContentLoaded', function() {
+      setLanguage('ja');
+      
+      // Navigation Toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenus = document.querySelectorAll('nav ul');
+      
+      navToggle.addEventListener('click', () => {
+        navMenus.forEach(menu => {
+          menu.classList.toggle('active');
+        });
+      });
+      
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          if (!this.classList.contains('lang-switch-ja') && !this.classList.contains('lang-switch-en')) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            
+            if (target) {
+              window.scrollTo({
+                top: target.offsetTop - 75,
+                behavior: 'smooth'
+              });
+              
+              // Close mobile menu after click
+              navMenus.forEach(menu => {
+                menu.classList.remove('active');
+              });
+            }
+          }
+        });
+      });
+      
+      // Active Navigation on Scroll
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY + 150;
+        
+        document.querySelectorAll('section').forEach(section => {
+          if (section.offsetTop <= scrollPosition && 
+              section.offsetTop + section.offsetHeight > scrollPosition) {
+            
+            const currentId = section.getAttribute('id');
+            
+            document.querySelectorAll('nav ul li a').forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${currentId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
